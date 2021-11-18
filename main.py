@@ -1,20 +1,20 @@
 import random as r
 
-bad_matches = [{'Brenna','KevKat'},
-               {'Brenna', 'Syrcus'},
-               {'Brenna', 'Michelle'},
-               {'Arianna', 'Erik'},
-               {'Charlie', 'Erik'},
-               {'Xander', 'Michelle'},
-               {'Rebecca', 'Thomas'},
-               {'Ben', 'Brenna'},
-               {'Ben', 'Thomas'},
-               {'Vanessa', 'Charlie'},
-               {'Vanessa', 'Erik'},
-               {'Syrcus', 'KevKat'},
-               {'Xander', 'Simon'},
-               {'Arianna', 'Rebecca'},
-               {'Michelle', 'Erik'}]
+bad_matches = [('Brenna','KevKat'),
+               ('Brenna', 'Syrcus'),
+               ('Brenna', 'Michelle'),
+               ('Arianna', 'Erik'),
+               ('Charlie', 'Erik'),
+               ('Xander', 'Michelle'),
+               ('Rebecca', 'Thomas'),
+               ('Ben', 'Brenna'),
+               ('Ben', 'Thomas'),
+               ('Vanessa', 'Charlie'),
+               ('Vanessa', 'Erik'),
+               ('Syrcus', 'KevKat'),
+               ('Xander', 'Simon'),
+               ('Arianna', 'Rebecca'),
+               ('Michelle', 'Erik')]
 
 
 def rand_input(total):
@@ -31,8 +31,9 @@ def rand_output(names_1, names_2):
         f_name = names_1.pop(first)
         second = r.randint(0, len(names_2) - 1)
         s_name = names_2.pop(second)
-        new_pair = {f_name, s_name}
-        if bad_matches.__contains__(new_pair):
+        new_pair = (f_name, s_name)
+        reverse = (s_name, f_name)
+        if bad_matches.__contains__(new_pair) or bad_matches.__contains__(reverse):
             if len(names_1) == 0:
                 print("bad run")
                 return False
